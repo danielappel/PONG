@@ -84,14 +84,7 @@ public class PongGame extends Game {
         }
         
         
-        
-        
-        
-        /*
-        if(pongBall.collide(playerRight.getPiece())) {
-            System.out.println("Collision Right!!");
-        }
-                */
+      
         
         
         
