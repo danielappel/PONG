@@ -76,7 +76,23 @@ public class PongGame extends Game {
         for(GamePiece p: pieces) {
             
             p.update();
+            //Determine collisions with ball & paddles
+            if(pongBall.collide(playerLeft.getPiece())) {
+                System.out.println("Collision Left!!");
+                }
         }
+        
+        
+        
+        
+        
+        /*
+        if(pongBall.collide(playerRight.getPiece())) {
+            System.out.println("Collision Right!!");
+        }
+                */
+        
+        
         
     }
     
