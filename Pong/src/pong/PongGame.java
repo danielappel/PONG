@@ -79,6 +79,7 @@ public class PongGame extends Game {
             //Determine collisions with ball & paddles
             if(pongBall.collide(playerLeft.getPiece())) {
                 System.out.println("Collision Left!!");
+                pongBall.changeXVelocity();
                 }
         }
         
