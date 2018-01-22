@@ -23,14 +23,14 @@ public class Ball extends GamePiece {
         
         this.radius = r;
         piece.setCenterX(r);
-        piece.setCenterY(r);
+        piece.setCenterY(GUI.HEIGHT/2); //Center of the screen
         //Update center
         ballX = piece.getCenterX();
         ballY = piece.getCenterY();
         
         //Set Velocities
         velX = vel;
-        velY = vel;
+        velY = 0; //Debug with no vertical velocity
         
     }
     
@@ -57,11 +57,11 @@ public class Ball extends GamePiece {
         
         //Bounce off vertial walls
        
-        /*
+        
         if(ballX <= radius || ballX >= GUI.WIDTH - radius) {
             velX *= -1;
         }
-        */
+        
                
         //Bounce off of horizontal walls
         if(ballY <= radius || ballY >= GUI.HEIGHT - radius) {
@@ -77,9 +77,14 @@ public class Ball extends GamePiece {
         double distanceY = Math.abs(this.ballY - coords[1]);
         
         //Look at difference in x positions
-        if(distanceX < radius) {
+        //System.out.println("Distance X: " + distanceX + "\nDistance Y: " + distanceY + "\n\n");
+        
+        if(distanceX < 2*radius) {
+            System.out.println("X in range");
+            System.out.println("The other height is: " + other.getHeight()/2);
             if(distanceY < other.getHeight()/2) {
                 //There will be a collision--bounce the ball!
+                System.out.println("BOUNCE!!");
                 return true;
             }
         }
