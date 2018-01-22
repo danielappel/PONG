@@ -58,7 +58,9 @@ public class Ball extends GamePiece {
         //Bounce off vertial walls
        
         
-        if(ballX <= radius || ballX >= GUI.WIDTH - radius) {
+        if(ballX <= 0 || ballX >= GUI.WIDTH) {
+            //Rest to center
+            ballX = GUI.WIDTH/2;
             velX *= -1;
         }
         
@@ -89,6 +91,10 @@ public class Ball extends GamePiece {
             }
         }
         return false;
+    }
+    
+    public void changeXVelocity() {
+        this.velX *= -1;
     }
     
     public Shape getPiece() {
