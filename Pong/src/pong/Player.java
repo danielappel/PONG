@@ -5,6 +5,7 @@ package pong;
 public class Player {
     public GamePiece piece;
     public boolean human;
+    public int score;
     
     public Player(boolean hum, GamePiece p) {
         this.human = hum;
