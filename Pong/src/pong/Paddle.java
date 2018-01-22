@@ -14,11 +14,12 @@ public class Paddle extends GamePiece {
     double paddleHeight;
     double paddleWidth;
     
+    //Determines which keys stand for up and down (e.g. arrows or WASD)
     KeyCode up;
     KeyCode down;
     
     
-    
+    //Graphical representation of paddle
     Line piece;
     
     public Paddle(boolean left, double ht, double width) {
@@ -37,8 +38,8 @@ public class Paddle extends GamePiece {
             updatePaddleCenter();
             
             //Set key handlers (up/down)
-            up = KeyCode.UP;
-            down = KeyCode.DOWN;
+            up = KeyCode.W;
+            down = KeyCode.S;
             
         }
         else {
@@ -47,8 +48,8 @@ public class Paddle extends GamePiece {
             updatePaddleCenter();
             
             //Set key handlers (up/down)
-            up = KeyCode.W;
-            down = KeyCode.S;
+            up = KeyCode.UP;
+            down = KeyCode.DOWN;
         }
 
     }
@@ -62,6 +63,7 @@ public class Paddle extends GamePiece {
         }
     
     public void updatePaddleCenter() {
+        //paddleY is the center of the paddle.  This creates a line with a center point
          piece.setStartY(paddleY - paddleHeight);
          piece.setEndY(paddleY + paddleHeight);
     }
@@ -70,9 +72,11 @@ public class Paddle extends GamePiece {
     public void update(KeyEvent key, boolean pressed) {
         
         if(pressed) {
+            //Determine if up event (e.g. arrow up or W key)
             if (key.getCode() == up) {
                 velocity = -1;
             }
+            //Determine if down event (e.g. arrow down or S key)
             else if (key.getCode() == down) {
                 velocity = 1;
             }
