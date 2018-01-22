@@ -41,7 +41,7 @@ public class Ball extends GamePiece {
     
     @Override
     public void update(KeyEvent key, boolean pressed) {
-        //Pass
+        //Pass--Not relevant for ball game piece
     }
     
     private void moveBall() {
@@ -55,9 +55,15 @@ public class Ball extends GamePiece {
     
     public void bounce() {
         
+        //Bounce off vertial walls
+       
+        /*
         if(ballX <= radius || ballX >= GUI.WIDTH - radius) {
             velX *= -1;
         }
+        */
+               
+        //Bounce off of horizontal walls
         if(ballY <= radius || ballY >= GUI.HEIGHT - radius) {
             velY *= -1;
         }
@@ -65,7 +71,7 @@ public class Ball extends GamePiece {
         
     public boolean collide(GamePiece other) {
         
-        
+        //Get coordinates from other piece in game (e.g paddles)
         double[] coords = other.getCoordinates();
         double distanceX = Math.abs(this.ballX - coords[0]);
         double distanceY = Math.abs(this.ballY - coords[1]);
@@ -73,6 +79,7 @@ public class Ball extends GamePiece {
         //Look at difference in x positions
         if(distanceX < radius) {
             if(distanceY < other.getHeight()/2) {
+                //There will be a collision--bounce the ball!
                 return true;
             }
         }
